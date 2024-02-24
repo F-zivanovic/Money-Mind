@@ -12,25 +12,29 @@ struct RegisterView: View {
     
     var body: some View {
         VStack(spacing: 16) {
+            Spacer()
             TextField("Email", text: $viewModel.email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .standardTextFieldStyle()
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
             
             SecureField("Password", text: $viewModel.password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .standardSecureFieldStyle()
             
             SecureField("Confirm Password", text: $viewModel.confirmPassword)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .standardSecureFieldStyle()
             
-            Button("Register") {
-                viewModel.register()
-            }
-            .padding()
-            .background(Color.pink)
-            .foregroundColor(.white)
-            .cornerRadius(8)
+            Button(action: {viewModel.register()}, label: {
+                Text("REGISTER")
+                    .frame(maxWidth: .infinity, alignment: .center)
+            })
+            .styled(as: .blue, size: .big, state: .defaultState)
+            Spacer()
         }
         .padding()
+        .background(Color.themeOrange.edgesIgnoringSafeArea(.all))
     }
+}
+#Preview {
+    RegisterView()
 }

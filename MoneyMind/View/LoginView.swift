@@ -12,22 +12,27 @@ struct LoginView: View {
     
     var body: some View {
         VStack(spacing: 16) {
+            Spacer()
             TextField("Email", text: $viewModel.email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .standardTextFieldStyle()
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
             
             SecureField("Password", text: $viewModel.password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Button("Login") {
-                viewModel.login()
-            }
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(8)
+                .standardSecureFieldStyle()
+        
+            Button(action: {viewModel.login()}, label: {
+                Text("LOGIN")
+                    .frame(maxWidth: .infinity, alignment: .center)
+            })
+            .styled(as: .orange, size: .big, state: .defaultState)
+            Spacer()
         }
         .padding()
+        .background(Color.themeDarkBlue.edgesIgnoringSafeArea(.all))
+        
     }
+}
+#Preview {
+    LoginView()
 }

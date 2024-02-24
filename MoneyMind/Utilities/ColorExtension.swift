@@ -19,6 +19,20 @@ extension Color {
     /// Custom orange color for the app theme.
     static let themeOrange = Color(hex: "#F6A12E")
     
+    /// Custom light gray color for the app theme.
+    static let themeLightGray = Color(hex: "#F2F2F2")
+    
+    /// Custom dark blue color for the app theme.
+    static let themeDarkBlue = Color(hex: "#002244")
+    
+    /// Custom cream white color for the app theme.
+    static let themeCreamWhite = Color(hex: "#FFF8E1")
+    
+    /// Custom action green color for the app theme.
+    static let themeActionGreen = Color(hex: "#4CAF50")
+    
+    
+    
     /**
      Creates a color instance using a hexadecimal string.
      
